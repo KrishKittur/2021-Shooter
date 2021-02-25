@@ -56,7 +56,6 @@ public class TurretSubsystem extends SubsystemBase {
             motor.setVoltage(output);
         } else {
             motor.setVoltage(0.0);
-            motor.setVoltage(0.0);
         }
     }
 
