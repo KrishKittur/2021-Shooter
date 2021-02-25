@@ -14,12 +14,12 @@ public class TurretSubsystem extends SubsystemBase {
     private final double offset = 0.0;
     private final double startPos;
     private final CANSparkMax motor = new CANSparkMax(2, MotorType.kBrushless);
-    private final DutyCycleEncoder encoder = new DutyCycleEncoder(0);
+    private final DutyCycleEncoder encoder = new DutyCycleEncoder(2);
     private final PIDController pid = new PIDController(0.1, 0.0, 0.0);
     private double reference = 0.0;
     private boolean enabled = false;
 
-    // Constructor
+    // In the constructor set the setters
     public TurretSubsystem() {
         encoder.setDistancePerRotation(360.0);
         startPos = getStart(encoder.getDistance(), offset);
