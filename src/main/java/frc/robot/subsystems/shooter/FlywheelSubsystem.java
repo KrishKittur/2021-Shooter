@@ -1,7 +1,6 @@
 package frc.robot.subsystems.shooter;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj.controller.SimpleMotorFeedforward;
@@ -12,8 +11,8 @@ import edu.wpi.first.wpiutil.math.MathUtil;
 public class FlywheelSubsystem extends SubsystemBase {
     
     // Variables
-    private final CANSparkMax rightMotor = new CANSparkMax(0, MotorType.kBrushless);
-    private final CANSparkMax leftMotor = new CANSparkMax(1, MotorType.kBrushless);
+    private final WPI_TalonFX rightMotor = new WPI_TalonFX(0);
+    private final WPI_TalonFX leftMotor = new WPI_TalonFX(1);
     private final Encoder encoder = new Encoder(0, 1);
     private final PIDController pid = new PIDController(0.01, 0.0, 0.0);
     private final SimpleMotorFeedforward ff = new SimpleMotorFeedforward(0.3, 0.002);
