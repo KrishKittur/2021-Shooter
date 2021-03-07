@@ -14,7 +14,7 @@ public class AcceleratorSubsystem extends SubsystemBase {
     // Variables
     private final WPI_TalonFX motor = new WPI_TalonFX(5);
     private final TalonFXSensorCollection sensorCollection = motor.getSensorCollection();
-    private final SimpleMotorFeedforward ff = new SimpleMotorFeedforward(0.3, 0.002, 0.0);
+    private final SimpleMotorFeedforward ff = new SimpleMotorFeedforward(0.3, 0.002);
     private final PIDController pid = new PIDController(0.1, 0, 0);
     private double reference = 0.0;
     private boolean enabled = false;
