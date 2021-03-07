@@ -28,7 +28,7 @@ public class HomeHoodCommand extends CommandBase {
     // If it has been 0.25 seconds and the hood is not moving then the command is over
     @Override
     public boolean isFinished() {
-        return Math.abs(hoodSubsystem.getVelocity()) < 2.0 && timer.get() >= 0.25;
+        return Math.abs(hoodSubsystem.getVelocity()) < 10.0 && timer.get() >= 0.25;
     }
 
     // In the end method set the hood to 0
