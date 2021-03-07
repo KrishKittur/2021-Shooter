@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch ToAngle",
+      "request": "launch",
+      "mainClass": "frc.robot.commands.spindexer.ToAngle",
+      "projectName": "2021-Shooter"
+    },
+    {
+      "type": "java",
       "name": "Launch TurretSubsystem",
       "request": "launch",
       "mainClass": "frc.robot.subsystems.shooter.TurretSubsystem",
