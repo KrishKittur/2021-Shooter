@@ -44,7 +44,22 @@ public class TurretSubsystem extends SubsystemBase {
     
     // Method to set the reference of the turret
     public void setReference(double reference) {
-        this.reference = MathUtil.clamp(reference, -180, 180);
+        double angle = reference % 360;
+        if (angle < 0.0) {
+            angle = 360 - Math.abs(angle);
+        }
+        if (angle > 180.0) {
+            angle = -360 + angle; 
+        }
+        if (reference == -180) {
+            angle = reference;
+        }
+        this.reference = angle;
+    }
+
+    // Method to check whether you are at the reference
+    public boolean atReference() {
+        return pid.atSetpoint();
     }
 
     // In the periodic method of this subsystem set the turret based on the parameters

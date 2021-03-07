@@ -44,6 +44,11 @@ public class FlywheelSubsystem extends SubsystemBase {
     public void setReference(double reference) {
         this.reference = reference;
     }
+
+    // Method to check whether you are at the reference
+    public boolean atReference() {
+        return pid.atSetpoint();
+    }
     
     // In the periodic method of this subsystem set the flywheel based on the parameters
     @Override

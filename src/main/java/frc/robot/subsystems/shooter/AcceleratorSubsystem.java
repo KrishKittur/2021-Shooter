@@ -40,6 +40,11 @@ public class AcceleratorSubsystem extends SubsystemBase {
         this.reference = reference;
     }
 
+    // Method to check whether you are at the reference
+    public boolean atReference() {
+        return pid.atSetpoint();
+    }
+
     // In the periodic method of this subsystem set the accelerator based on the parameters
     @Override
     public void periodic() {
@@ -52,7 +57,4 @@ public class AcceleratorSubsystem extends SubsystemBase {
             motor.setVoltage(0.0);
         }
     }
-
-    
-    
 }
