@@ -10,14 +10,14 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class SpindexerSubsystem extends SubsystemBase {
 
     // Variables
-    private final double offset = 27.0;
+    private final double offset = 29.0;
     private final CANSparkMax motor = new CANSparkMax(34, MotorType.kBrushless);
     private final DutyCycleEncoder encoder = new DutyCycleEncoder(0);
 
     // In the constructor set the setters
     public SpindexerSubsystem() {
-        motor.setSmartCurrentLimit(8);
-        motor.setSecondaryCurrentLimit(10);
+        motor.setSmartCurrentLimit(12);
+        motor.setSecondaryCurrentLimit(14);
         encoder.setDistancePerRotation(360.0);
     }
 
