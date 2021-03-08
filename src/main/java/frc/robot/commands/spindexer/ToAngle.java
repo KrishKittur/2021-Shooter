@@ -28,7 +28,7 @@ public class ToAngle extends CommandBase {
     // Execute method
     @Override
     public void execute() {
-        double output = MathUtil.clamp(pid.calculate(subsystem.getDistance(), reference), -10, 10);
+        double output = MathUtil.clamp(pid.calculate(subsystem.getDistance(), reference), -7, 7);
         subsystem.setVoltage(output);
     }
 
