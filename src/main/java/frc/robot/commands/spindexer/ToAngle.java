@@ -16,7 +16,7 @@ public class ToAngle extends CommandBase {
     // Constructor
     public ToAngle(SpindexerSubsystem subsystem) {
         this.subsystem = subsystem;
-        pid.setTolerance(3, 1);
+        pid.setTolerance(7, 1);
     }
 
     // Initialize method
@@ -28,20 +28,20 @@ public class ToAngle extends CommandBase {
     // Execute method
     @Override
     public void execute() {
-        subsystem.setVoltage(3);
+        double output = MathUtil.clamp(pid.calculate(subsystem.getDistance(), reference), -10, 10);
+        subsytem.setVoltage(output);
     }
 
     // IsFinished method
     @Override
     public boolean isFinished() {
-        return false;
+        return pid.atSetpoint();
     }
 
     // End method
     @Override
     public void end(boolean interrupted) {
         subsystem.setVoltage(0.0);
-        System.out.println(interrupted);
     }
 
     // Method to calculate the setpoint for this command
