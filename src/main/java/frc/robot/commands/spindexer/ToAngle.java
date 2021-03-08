@@ -16,7 +16,7 @@ public class ToAngle extends CommandBase {
     // Constructor
     public ToAngle(SpindexerSubsystem subsystem) {
         this.subsystem = subsystem;
-        pid.setTolerance(7, 1);
+        pid.setTolerance(5, 1);
     }
 
     // Initialize method
