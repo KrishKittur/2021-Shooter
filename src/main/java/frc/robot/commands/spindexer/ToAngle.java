@@ -29,7 +29,7 @@ public class ToAngle extends CommandBase {
     @Override
     public void execute() {
         double output = MathUtil.clamp(pid.calculate(subsystem.getDistance(), reference), -10, 10);
-        subsytem.setVoltage(output);
+        subsystem.setVoltage(output);
     }
 
     // IsFinished method
