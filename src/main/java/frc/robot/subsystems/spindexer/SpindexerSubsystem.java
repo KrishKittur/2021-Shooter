@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class SpindexerSubsystem extends SubsystemBase {
 
     // Variables
-    private final double offset = 0.0;
-    private final CANSparkMax motor = new CANSparkMax(4, MotorType.kBrushless);
-    private final DutyCycleEncoder encoder = new DutyCycleEncoder(5);
+    private final double offset = 27.0;
+    private final CANSparkMax motor = new CANSparkMax(34, MotorType.kBrushless);
+    private final DutyCycleEncoder encoder = new DutyCycleEncoder(0);
 
     // In the constructor set the setters
     public SpindexerSubsystem() {
@@ -29,12 +29,6 @@ public class SpindexerSubsystem extends SubsystemBase {
     // Method to set the voltage of the spindexer
     public void setVoltage(double voltage) {
         motor.setVoltage(voltage);
-    }
-
-    // In the periodic method of this subsystem, add the encoder distance to smart dashboard
-    @Override
-    public void periodic() {
-        SmartDashboard.putNumber("Spindexer Angle", getDistance());
     }
     
 }
