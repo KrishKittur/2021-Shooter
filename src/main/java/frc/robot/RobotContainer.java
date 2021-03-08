@@ -21,7 +21,7 @@ public class RobotContainer {
 
   // Method to configure the button bindings
   private void configureButtonBindings() {
-    new JoystickButton(controller, Button.kA.value).whileHeld(
+    new JoystickButton(controller, Button.kA.value).whenPressed(
       new ToAngle(spindexerSubsystem)
     );
   }
