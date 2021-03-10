@@ -29,7 +29,7 @@ public class HoodSubsystem extends SubsystemBase {
 
     // Method to get the distance of the hood encoder
     public double getDistance() {
-        return encoder.getDistance() - 1.0;
+        return -encoder.getDistance() - 1.0;
     }
 
     // Method to set the voltage of the hood encoder

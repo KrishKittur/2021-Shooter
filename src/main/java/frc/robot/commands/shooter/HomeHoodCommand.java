@@ -15,6 +15,7 @@ public class HomeHoodCommand extends CommandBase {
     public HomeHoodCommand(HoodSubsystem hoodSubsystem) {
         this.hoodSubsystem = hoodSubsystem;
         addRequirements(hoodSubsystem);
+
         timer = new Timer();
         timer.start();
     }
@@ -35,6 +36,7 @@ public class HomeHoodCommand extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         hoodSubsystem.setVoltage(0.0);
+        hoodSubsystem.reset();
     }
 
     
