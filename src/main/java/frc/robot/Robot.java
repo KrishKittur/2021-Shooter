@@ -16,7 +16,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
-    SmartDashboard.putNumber("Hood Reference", 0.0);
+    SmartDashboard.putNumber("Hood-Reference", 0.0);
   }
 
   @Override
@@ -47,16 +47,12 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     CommandScheduler.getInstance().schedule(
-      false, new HomeHoodCommand(m_robotContainer.hoodSubsystem)
+      new HomeHoodCommand(m_robotContainer.hoodSubsystem).andThen(new ToAngle(m_robotContainer.hoodSubsystem, 50.0))
     );
   }
 
   @Override
   public void teleopPeriodic() {
-    double reference = SmartDashboard.getNumber("Hood Reference", 0.0);
-    CommandScheduler.getInstance().schedule(
-      new ToAngle(m_robotContainer.hoodSubsystem, reference)
-    );
   }
 
   @Override

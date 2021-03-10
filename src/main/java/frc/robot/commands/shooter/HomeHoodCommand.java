@@ -23,7 +23,8 @@ public class HomeHoodCommand extends CommandBase {
     // In the initialize method set the hood to move down at a slow rate
     @Override
     public void initialize() {
-        hoodSubsystem.setVoltage(-3.0);
+        hoodSubsystem.setCurrentLimit(5, 10);
+        hoodSubsystem.setVoltage(-3);
     }
 
     // If it has been 0.25 seconds and the hood is not moving then the command is over

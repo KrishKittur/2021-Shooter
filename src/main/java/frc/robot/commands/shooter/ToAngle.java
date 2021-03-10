@@ -1,6 +1,7 @@
 package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj.controller.PIDController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpiutil.math.MathUtil;
 import frc.robot.subsystems.shooter.HoodSubsystem;
@@ -8,7 +9,7 @@ import frc.robot.subsystems.shooter.HoodSubsystem;
 // To Angle Command
 public class ToAngle extends CommandBase {
 
-    private final PIDController pid = new PIDController(0.01, 0.0, 0.0);
+    private final PIDController pid = new PIDController(0.6, 0.0, 0.001);
     private final HoodSubsystem subsystem;
     private final double angle;
 
@@ -19,10 +20,16 @@ public class ToAngle extends CommandBase {
         addRequirements(subsystem);
     }
 
-    // Execute method
+    // Initialize method
     @Override
     public void initialize() {
-        double output = MathUtil.clamp(pid.calculate(subsystem.getDistance(), angle), -6, 6);
+        subsystem.setCurrentLimit(25, 30);
+    }
+
+    // Execute method
+    @Override
+    public void execute() {
+        double output = MathUtil.clamp(pid.calculate(subsystem.getDistance(), angle), -12, 12);
         subsystem.setVoltage(output);
     }
 

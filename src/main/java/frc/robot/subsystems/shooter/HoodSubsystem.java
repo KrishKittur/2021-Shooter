@@ -17,8 +17,7 @@ public class HoodSubsystem extends SubsystemBase {
 
     // In the constructor set the setters
     public HoodSubsystem() {
-        motor.setSmartCurrentLimit(13);
-        motor.setSecondaryCurrentLimit(15);
+        setCurrentLimit(13, 15);
         encoder.setDistancePerRotation(24.0);
     }
 
@@ -40,6 +39,12 @@ public class HoodSubsystem extends SubsystemBase {
     // Method to reset the hood encoder (for the homing routine)
     public void reset() {
         encoder.reset();
+    }
+
+    // Method to set the current limit of the motor 
+    public void setCurrentLimit(int smart, double secondary) {
+        motor.setSmartCurrentLimit(smart);
+        motor.setSecondaryCurrentLimit(secondary);
     }
     
     // In the periodic method of this subsystem, write to smart dashboard
